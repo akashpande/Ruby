@@ -1,4 +1,4 @@
-class KnightTour	
+  class KnightTour	
 	@solution
 	def initialize
 		@n=8
@@ -47,7 +47,7 @@ class KnightTour
         return true		
 	end	
 
-end
-kn=KnightTour.new
-kn.solve
+  end
+  kn=KnightTour.new
+  kn.solve
 
