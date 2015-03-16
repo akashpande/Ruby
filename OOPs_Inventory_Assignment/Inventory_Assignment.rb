@@ -2,52 +2,52 @@
   require 'csv'
 
   module View
-  	def list_product
-  	  puts "The list of products with all their details are"
+    def list_product
+      puts "The list of products with all their details are"
       inventories = CSV.read("inventory.csv",headers:true)
 		  
-	  inventories.headers.each do |current_header|
-	  	print "#{ current_header } "
-	  end
+      inventories.headers.each do |current_header|
+	print "#{ current_header } "
+      end
 		  
-	  print "\n\n"
+      print "\n\n"
 
-	  inventories.each do |current_inventory|
-	  	current_inventory_text =  current_inventory.to_s.split(",")
+      inventories.each do |current_inventory|
+	current_inventory_text =  current_inventory.to_s.split(",")
 		  
-	  	current_inventory_text.each do | current_inventory_text_column |
-		  print "#{current_inventory_text_column}  "
-	  	end
+	current_inventory_text.each do | current_inventory_text_column |
+	  print "#{current_inventory_text_column}  "
+	end
 
-	  end
+      end
 
-  	end
+    end
 
-  	def search_product
+    def search_product
 
-  	  puts "Enter the name of product to search"
-		  product_search = gets.chomp.to_s
-		  inventories = CSV.read("inventory.csv",headers:true)
+      puts "Enter the name of product to search"
+      product_search = gets.chomp.to_s
+      inventories = CSV.read("inventory.csv",headers:true)
 		  
-		  inventories.headers.each do |current_header|
-		  	print "#{ current_header } "
-		  end
+      inventories.headers.each do |current_header|
+	print "#{ current_header } "
+      end
 		  
-		  print "\n\n"
+      print "\n\n"
 		  
-		  inventories.each do |current_inventory|
+      inventories.each do |current_inventory|
 
-		  	if current_inventory["product_name"].to_s == product_search
-		  	  current_inventory_text = current_inventory.to_s.split(",")
+  	if current_inventory["product_name"].to_s == product_search
+  	  current_inventory_text = current_inventory.to_s.split(",")
 		  	  
-		  	  current_inventory_text.each do | current_inventory_text_column |
-		  	  	print "#{ current_inventory_text_column }  "
-		  	  end
+  	  current_inventory_text.each do | current_inventory_text_column |
+            print "#{ current_inventory_text_column }  "
+	  end
 		  	
-		  	end
+	end
 		  
-		  end	
-  	end 
+      end	
+    end 
 
   end
 
