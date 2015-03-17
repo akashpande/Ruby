@@ -1,12 +1,12 @@
-# The assignment for RegEx.
-# 2) Check if the pattern "ss" appears in the string "Mississippi".
-# 3) Print out the 3rd word of each sentence from a list of sentences.
-# 4) Find and replace all instances of "Mrs" with "Ms" in a sentence.
-# 5) Does a string start with "St"?
-# 6) Does a string end with "art"?
-# 7) Does a string have non-alphanumeric characters in it?
-# 8) Are there any whitespace characters in the string?
-# 9) Find and replace all non-alphanumeric characters in a string with "-".
+  # The assignment for RegEx.
+  # 2) Check if the pattern "ss" appears in the string "Mississippi".
+  # 3) Print out the 3rd word of each sentence from a list of sentences.
+  # 4) Find and replace all instances of "Mrs" with "Ms" in a sentence.
+  # 5) Does a string start with "St"?
+  # 6) Does a string end with "art"?
+  # 7) Does a string have non-alphanumeric characters in it?
+  # 8) Are there any whitespace characters in the string?
+  # 9) Find and replace all non-alphanumeric characters in a string with "-".
   class RegularExpression
     def ss_finder
       puts "Please Enter the string"
@@ -78,9 +78,27 @@
       else
         puts "#{input_string} do not contain alpha-numeric characters"
       end 
-    end 
+    end
 
+    def third_string_finder
+      puts "Enter a passage. To stop press x"
+      
+      while true
+        input_string = gets.chomp.to_s
+        if input_string == "x"
+          puts "Your passage ends here"
+          break
+        end
+        
+        if input_string.match /\s*\w+\s\w+\s\w+/
+          required_matcher = input_string.match /\s*\w+\s\w+\s\w+/
+          required_string = required_matcher.to_s.split(" ").last
+          puts "Third word is : #{required_string}"
+        end  
+         
+      end 
 
+    end  
 	 	
   end
 
@@ -95,4 +113,4 @@
   regexpr.non_alphanumeric_char_finder
   regexpr.whitespace_char_finder
   regexpr.non_alphanumeric_char_replacer
-  
+  regexpr.third_string_finder
